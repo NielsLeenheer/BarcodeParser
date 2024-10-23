@@ -37,7 +37,7 @@ import { Aim, GS1, Detector, Symbologies } from '@point-of-sale/barcode-parser';
 
 Some barcode scanners give back an AIM Code Identifier which gives information about the barcode symbology and certain other options.
 
-To parse the AIM Code Identifier call the `Aim.decode()` function. It requires two parameters: the 3 character AIM Code Indentifier, starting with a `[`, and the remaining value of the barcode.
+To parse the AIM Code Identifier call the `Aim.decode()` function. It requires two parameters: the 3 character AIM Code Indentifier, starting with a `]`, and the remaining value of the barcode.
 
 ```js
 let result = Aim.decode(']E0', '3046920029759');
@@ -57,7 +57,7 @@ Optionally there will be a key `model` for the QR code model and a key `fnc1` th
 
 ### GS1
 
-Retail and warehouses often use barcodes that encode GS1 data. For example ITF14, EAN and UPC barcodes encode the GS1 GTIN. Additionally a GS1 Digital Link QR Code, GS1 Datamatrix, GS1-128 or GS1 Databar can encode other GS1 elements.
+Retail and warehouses often use barcodes that encode GS1 data. For example ITF-14, EAN and UPC barcodes encode the GS1 GTIN. Additionally a GS1 Digital Link QR Code, GS1 Datamatrix, GS1-128 or GS1 Databar can encode other GS1 elements.
 
 To parse the GS1 data from a barcode you can call the `GS1.decode()` function. It only requires one parameter, an object with the following properties:
 
@@ -68,6 +68,10 @@ To parse the GS1 data from a barcode you can call the `GS1.decode()` function. I
 -   `fnc1`<br>
     Optionally the value of the `fnc1` property returned by the `AIM.decode()` function.
 
+<br>
+
+For example: 
+
 ```js
 let result = GS1.decode({ 
     value:      '3046920029759',
@@ -75,7 +79,7 @@ let result = GS1.decode({
 });
 ```
 
-Or
+Or:
 
 ```js
 let result = GS1.decode({ 

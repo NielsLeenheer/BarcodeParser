@@ -32,8 +32,6 @@ class DigitalLink {
 		return (10 - (total % 10)) % 10;
 	}
 
-
-
 	static verifyCheckDigit(ai, value) {
         if (!checkDigitPositions[ai]) {
             return true;
