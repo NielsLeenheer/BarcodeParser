@@ -1,0 +1,38 @@
+{
+  "name": "@point-of-sale/barcode-parser",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    "import": "./dist/barcode-parser.mjs",
+    "require": "./dist/barcode-parser.cjs"
+  },
+  "module": "dist/barcode-parser.mjs",
+  "main": "dist/barcode-parser.cjs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NielsLeenheer/BarcodeParser.git"
+  },
+  "keywords": [
+    "barcode",
+    "gs1",
+    "ean",
+    "upc",
+    "aim"
+  ],
+  "author": "Niels Leenheer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NielsLeenheer/BarcodeParser/issues"
+  },
+  "homepage": "https://github.com/NielsLeenheer/BarcodeParser#readme",
+  "devDependencies": {
+    "rollup": "^3.20.7"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  },
+  "files": [
+    "dist"
+  ]
+}
