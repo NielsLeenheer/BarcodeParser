@@ -28,19 +28,19 @@ class Detector {
         }
 
         else if (barcode.match(/^[0-9]+$/) && barcode.length == 8) {            
-            if (SymbologyDetector.checkdigit(barcode.slice(0, -1)) == barcode.slice(-1)) {
+            if (Detector.checkdigit(barcode.slice(0, -1)) == barcode.slice(-1)) {
                 return { symbology: 'ean8', guess: false };
             }
         }
 
         else if (barcode.match(/^[0-9]+$/) && barcode.length == 12) {
-            if (SymbologyDetector.checkdigit(barcode.slice(0, -1)) == barcode.slice(-1)) {
+            if (Detector.checkdigit(barcode.slice(0, -1)) == barcode.slice(-1)) {
                 return { symbology: 'upca', guess: false };
             }
         }
 
         else if (barcode.match(/^[0-9]+$/) && barcode.length == 13) {
-            if (SymbologyDetector.checkdigit(barcode.slice(0, -1)) == barcode.slice(-1)) {
+            if (Detector.checkdigit(barcode.slice(0, -1)) == barcode.slice(-1)) {
                 return { symbology: 'ean13', guess: false };
             }
         }
