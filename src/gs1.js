@@ -21,7 +21,7 @@ class GS1 {
 
         /* Decode GS1 data if it is a GS1 DataBar */
 
-        else if (result.symbology.startsWith('gs1-databar')) {
+        else if (result.symbology?.startsWith('gs1-databar')) {
             elements = Elements.parse(result.value);
         }
 
