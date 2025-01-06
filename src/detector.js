@@ -51,6 +51,10 @@ class Detector {
             }
         }
 
+        else if (barcode.match(/^[0-9]+$/) && barcode.length == 14) {
+            return { symbology: 'itf', guess: false };
+        }
+
         else if (barcode.match(/^M[0-9]/)) {
             return { symbology: 'aztec-code', guess: true };
         }
