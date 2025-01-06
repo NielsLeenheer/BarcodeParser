@@ -1,3 +1,5 @@
+import UPCE from './symbologies/upce';
+
 class Detector {
     
     static checkdigit(barcode) {
@@ -27,8 +29,12 @@ class Detector {
             return { symbology: 'qr-code', guess: false };
         }
 
-        else if (barcode.match(/^[0-9]+$/) && barcode.length == 8) {            
+        else if (barcode.match(/^[0-9]+$/) && barcode.length == 8) {   
             if (Detector.checkdigit(barcode.slice(0, -1)) == barcode.slice(-1)) {
+                if (barcode.charAt(0) == '0' || barcode.charAt(0) == '1') {
+                    return { symbology: 'upce', guess: true };
+                }
+
                 return { symbology: 'ean8', guess: false };
             }
         }
