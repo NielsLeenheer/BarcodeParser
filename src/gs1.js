@@ -25,6 +25,14 @@ class GS1 {
             elements = Elements.parse(result.value);
         }
 
+        /* Extract data from an ITF-14 barcode */
+
+        else if (result.symbology === 'itf' && result.value.length === 14) {
+            elements = [
+                { ai: '01', label: 'GTIN', value: result.value }
+            ];
+        }
+
         /* Extract data from EAN and UPC barcodes */
 
         else if (['upca','ean8','ean13'].includes(result.symbology)) {
