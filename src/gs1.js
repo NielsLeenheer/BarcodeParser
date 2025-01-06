@@ -4,6 +4,8 @@ import Symbologies from "./symbologies.js";
 
 class GS1 {
 
+    static DigitalLink = DigitalLink;
+
     static parse(result) {
         let elements = [];
 
