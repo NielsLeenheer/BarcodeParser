@@ -4,7 +4,12 @@
   "type": "module",
   "exports": {
     "import": "./dist/barcode-parser.mjs",
-    "require": "./dist/barcode-parser.cjs"
+    "require": "./dist/barcode-parser.cjs",
+    "browser": {
+      "import": "./dist/barcode-parser.esm.js",
+      "require": "./dist/barcode-parser.umd.js",
+      "script": "./dist/barcode-parser.umd.js"
+    }
   },
   "module": "dist/barcode-parser.mjs",
   "main": "dist/barcode-parser.cjs",
@@ -34,5 +39,10 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-terser": "^0.4.4"
+  }
 }
