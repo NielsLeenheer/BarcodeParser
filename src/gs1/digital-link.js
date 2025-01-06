@@ -45,6 +45,8 @@ class DigitalLink {
             console.log(`Invalid check digit: An invalid check digit was found for the primary identification key (${ai})${value}; the correct check digit should be ${expectedCheckDigit} at position ${checkDigitPosition}`);
             return false;
         }
+
+        return true;
 	}
 
 	static verifySyntax(ai, value) {
