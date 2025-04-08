@@ -1,6 +1,6 @@
 {
   "name": "@point-of-sale/barcode-parser",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "exports": {
     "import": "./dist/barcode-parser.mjs",
