@@ -21,32 +21,37 @@ class GS1 {
             elements = DigitalLink.parse(result.value);
         }
 
-        /* Decode GS1 data if it is a GS1 DataBar */
+        /* Decode GS1 data based on the symbology */
 
-        else if (result.symbology?.startsWith('gs1-databar')) {
-            elements = Elements.parse(result.value);
-        }
+        else if (typeof result.symbology === 'string') {
 
-        /* Extract data from an ITF-14 barcode */
+            /* Decode GS1 data if it is a GS1 DataBar */
 
-        else if (result.symbology === 'itf' && result.value.length === 14) {
-            elements = [
-                { ai: '01', label: 'GTIN', value: result.value }
-            ];
-        }
+            if (result.symbology?.startsWith('gs1-databar')) {
+                elements = Elements.parse(result.value);
+            }
 
-        /* Extract data from EAN and UPC barcodes */
+            /* Extract data from an ITF-14 barcode */
 
-        else if (['upca','ean8','ean13'].includes(result.symbology)) {
-            elements = [
-                { ai: '01', label: 'GTIN', value: result.value.padStart(14, '0') }
-            ];
-        }
+            else if (result.symbology === 'itf' && result.value.length === 14) {
+                elements = [
+                    { ai: '01', label: 'GTIN', value: result.value }
+                ];
+            }
 
-        if (result.symbology === 'upce') {
-            elements = [
-                { ai: '01', label: 'GTIN', value: Symbologies.UPCE.expand(result.value).padStart(14, '0') }
-            ];
+            /* Extract data from EAN and UPC barcodes */
+
+            else if (['upca','ean8','ean13'].includes(result.symbology)) {
+                elements = [
+                    { ai: '01', label: 'GTIN', value: result.value.padStart(14, '0') }
+                ];
+            }
+
+            else if (result.symbology === 'upce') {
+                elements = [
+                    { ai: '01', label: 'GTIN', value: Symbologies.UPCE.expand(result.value).padStart(14, '0') }
+                ];
+            }
         }
 
         /* Prepare return value */
